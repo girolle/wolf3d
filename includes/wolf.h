@@ -105,6 +105,7 @@ int					loop_hook(t_env *e);
 int					open_file(t_env *e, char *f);
 int					key_hook(int k, t_env *e);
 int					key_release(int k, t_env *e);
+int					x_close(void *data);
 t_env				*init_env(void);
 void				draw_line(t_env *e, int x, int start, int end);
 void				raycasting(t_env *e);

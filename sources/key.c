@@ -12,6 +12,13 @@
 
 #include "../includes/wolf.h"
 
+
+int		x_close(void *data)
+{
+	(void)data;
+	exit(0);
+}
+
 void	key_move(int k, t_env *e)
 {
 	if (k == KEY_UP)

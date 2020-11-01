@@ -31,6 +31,7 @@ int				main(int argc, char **argv)
 	mlx_do_key_autorepeatoff(e->mlx.mlx);
 	mlx_loop_hook(e->mlx.mlx, loop_hook, e);
 	mlx_hook(e->mlx.win, KEY_PRESS, KEY_PRESS_MASK, key_hook, e);
+	mlx_hook(e->mlx.win, 17, 0, x_close, e);
 	mlx_key_hook(e->mlx.win, key_hook, e);
 	mlx_loop(e->mlx.mlx);
 	return (0);
