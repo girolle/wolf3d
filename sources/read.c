@@ -81,7 +81,7 @@ int				open_file(t_env *e, char *f)
 {
 	int		fd;
 
-	fd = open(f, O_DIRECTORY);
+	fd = open(f, O_DIRECTORY); //Зачем это?
 	if (fd >= 0)
 		return (0);
 	fd = open(f, O_RDONLY);

@@ -21,13 +21,13 @@ int		x_close(void *data)
 
 void	key_move(int k, t_env *e)
 {
-	if (k == KEY_UP || k == 13)
+	if (k == KEY_UP || k == KEY_UP_W)
 		e->player.move_up = !e->player.move_up;
-	if (k == KEY_DOWN || k == 1)
+	if (k == KEY_DOWN || k == KEY_LEFT_S)
 		e->player.move_down = !e->player.move_down;
-	if (k == KEY_LEFT || k == 0)
+	if (k == KEY_LEFT || k == KEY_DOWN_A)
 		e->player.move_left = !e->player.move_left;
-	if (k == KEY_RIGHT || k == 2)
+	if (k == KEY_RIGHT || k == KEY_RIGHT_D)
 		e->player.move_right = !e->player.move_right;
 	if (k == KEY_ESC)
 	{
