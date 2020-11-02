@@ -8,7 +8,8 @@ SRC		= sources/main.c \
 		  sources/ray.c \
 		  sources/read.c \
 		  sources/key.c \
-		  sources/move.c
+		  sources/move.c \
+		  sources/map.c
 
 OBJ		= $(patsubst sources/%.c,objects/%.o,$(SRC))
 .SILENT:

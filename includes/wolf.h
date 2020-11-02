@@ -17,6 +17,7 @@
 # include <mlx.h>
 # include <math.h>
 # include <time.h>
+# include <stdio.h> //TODO удалить потом, сейчас нужен для проверки
 
 # define WIDTH 800
 # define HEIGHT 600
@@ -121,4 +122,5 @@ void				move_down(t_env *e);
 void				error_map(void);
 void				error_arg(void);
 void				error_malloc(void);
+void				draw_map(t_env *e);
 #endif

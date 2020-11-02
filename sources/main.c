@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/wolf.h"
+#include "../includes/wolf.h" //TODO говорили, что так писать не очень клево, придираются
 
 static void		read_option(t_env *e, int argc, char **argv)
 {
