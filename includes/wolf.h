@@ -19,7 +19,7 @@
 # include <time.h>
 # include <stdio.h> //TODO удалить потом, сейчас нужен для проверки
 
-# define WIDTH 800
+# define WIDTH 800 //TODO нужно переделать Makefile, чтобы пересобирал без fclean
 # define HEIGHT 600
 
 # define KEY_UP 126
@@ -123,4 +123,5 @@ void				error_map(void);
 void				error_arg(void);
 void				error_malloc(void);
 void				draw_map(t_env *e);
+void				draw_player(t_env *e);
 #endif

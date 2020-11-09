@@ -1,59 +1,58 @@
 #include "../includes/wolf.h"
 
-//void 	pixel_map(t_env *e, int x, int y, int color)
-//{
-//	mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y, color);
-//}
+void 	draw_square(int x, int y, t_env *e, int color)
+{
+	int y1;
+	int x1;
 
-//void 	draw_x(t_env *e, int y, int i)
-//{
-//	int j;
-//	int color_map;
-//	int color_player;
-//	int x1;
-//
-//	j = 0;
-//	color_map = 0xFFFF0F;
-//	color_player = 0xFFFFF0;
-//	while (j < e->map_width)
+	y1 = y;
+	x1 = x;
+	while (y <= y1 + 5)
+	{
+		while (x <= x1 + 5)
+		{
+			mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y,
+						  color);
+			x++;
+		}
+		y++;
+		x = x1;
+	}
+}
+
+void	draw_player(t_env *e)
+{
+	int 	x;
+	int		y;
+//	int 	result;
+//	double 	dif;
+
+	x = (int)e->player.pos.x * 5 + 5;
+//	dif = e->player.pos.x - result;
+//	if (dif == 0)
+//		x = 5 + (e->player.pos.x * 5);
+//	else
 //	{
-//		if (e->player.pos.x == (j - 0.5) && e->player.pos.y == (i - 0.5))
-//		{
-//			while (y <= y1 + 5)
-//			{
-//				while (x <= x1 + 5)
-//				{
-//					mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y,
-//								  0xFFFFF0);
-//					x++;
-//				}
-//				y++;
-//				x = x1;
-//			}
-//		}
-//		else if (e->map[i][j] == 1)
-//		{
-//			while (y <= y1 + 5)
-//			{
-//				while (x <= x1 + 5)
-//				{
-//					mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y,
-//								  0xFFFF0F);
-//					x++;
-//				}
-//				y++;
-//				x = x1;
-//			}
-//
-//		}
-//		j++;
-//		x1 += 5;
-//		x = x1;
-//		y = y1;
+//		if (dif > 0.5 || dif == 0.5)
+//			x = 10 + (e->player.pos.x * 5);
+//		else
+//			x = e->player.pos.x * 5;
 //	}
-//}
+	y = (int)e->player.pos.y * 5 + 5;
+//	dif = e->player.pos.y - result;
+//	if (dif == 0)
+//		y = 5 + (e->player.pos.y * 5);
+//	else
+//	{
+//		if (dif > 0.5 || dif == 0.5)
+//			y = 10 + (e->player.pos.y * 5);
+//		else
+//			y = e->player.pos.y * 5;
+//	}
+	draw_square(x, y, e, 0xFFFFFF);
+}
 
-void	draw_map(t_env *e)
+void	draw_map(t_env *e) //TODO разбить функцию
 {
 	int x;
 	int x1;
@@ -72,34 +71,9 @@ void	draw_map(t_env *e)
 	{
 		while (j < e->map_width)
 		{
-			if (e->player.pos.x == (j - 0.5) && e->player.pos.y == (i - 0.5))
+			if (e->map[i][j] == 1)
 			{
-				while (y <= y1 + 5)
-				{
-					while (x <= x1 + 5)
-					{
-						mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y,
-									  0xFFFFF0);
-						x++;
-					}
-					y++;
-					x = x1;
-				}
-			}
-			else if (e->map[i][j] == 1)
-			{
-				while (y <= y1 + 5)
-				{
-					while (x <= x1 + 5)
-					{
-						mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y,
-									  0xFFFF0F);
-						x++;
-					}
-					y++;
-					x = x1;
-				}
-
+				draw_square(x, y, e, 0xFFFF0F);
 			}
 			j++;
 			x1 += 5;

@@ -26,9 +26,10 @@ int		loop_hook(t_env *e)
 		move_right(e);
 	if (e->player.move_left)
 		move_left(e);
-	printf("%f  %f  \n", e->player.pos.x, e->player.pos.y);
+	//printf("%f  %f  \n", e->player.pos.x, e->player.pos.y);
 	raycasting(e);
 	mlx_put_image_to_window(e->mlx.mlx, e->mlx.win, e->mlx.img, 0, 0);
 	draw_map(e);
+	draw_player(e);
 	return (0);
 }
