@@ -102,8 +102,7 @@ void			raycasting(t_env *e)
 	int		x;
 
 	x = -1;
-	e->ray.pos.x = e->player.pos.x;
-	e->ray.pos.y = e->player.pos.y;
+	e->ray.pos = e->player.pos;
 	while (++x < e->width)
 	{
 		ray_init(e, x);

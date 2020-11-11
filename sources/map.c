@@ -54,7 +54,7 @@ void	draw_player(t_env *e)
 
 	x = (int)e->player.pos.x * 5 + 5;
 	y = (int)e->player.pos.y * 5 + 5;
-	draw_square(y, x, e, 0xFFFFFF);
+	draw_square(y, x, e, 0x00FF00);
 	//draw_dir(y, x, e, 0xFF0000);
 }
 
