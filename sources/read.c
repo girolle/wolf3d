@@ -89,5 +89,3 @@ int				open_file(t_env *e, char *f)
 	fd = open(f, O_RDONLY);
 	return (read_file(fd, e));
 }
-
-

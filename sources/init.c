@@ -22,6 +22,7 @@ static void		init_player(t_env *e)
 	e->player.plane.y = 0.66;
 	e->player.speed_turn = 0.05;
 	e->player.speed_move = 0.05;
+	e->player.speed_plus = 0;
 	e->player.move_up = 0;
 	e->player.move_down = 0;
 	e->player.move_right = 0;

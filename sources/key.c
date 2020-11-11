@@ -23,6 +23,14 @@ void	key_move(int k, t_env *e)
 {
 	if (k == KEY_UP || k == KEY_UP_W)
 		e->player.move_up = !e->player.move_up;
+	if (k == 257 || k == 258)
+	{
+		if (e->player.speed_plus == 0)
+			e->player.speed_move = 0.5;
+		else
+			e->player.speed_move = 0.05;
+		e->player.speed_plus = (e->player.speed_plus == 0) ? 1 : 0;
+	}
 	if (k == KEY_DOWN || k == KEY_LEFT_S)
 		e->player.move_down = !e->player.move_down;
 	if (k == KEY_LEFT || k == KEY_DOWN_A)

@@ -56,6 +56,8 @@ typedef struct		s_player
 	double			speed_turn;
 	double			speed_move;
 
+	int 			speed_plus;
+
 	char			move_left;
 	char			move_right;
 	char			move_up;
@@ -110,7 +112,6 @@ typedef struct		s_env
 int					loop_hook(t_env *e);
 int					open_file(t_env *e, char *f);
 int					key_hook(int k, t_env *e);
-int					key_release(int k, t_env *e);
 int					x_close(void *data);
 t_env				*init_env(void);
 void				draw_line(t_env *e, int x, int start, int end);
