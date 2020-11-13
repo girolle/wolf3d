@@ -22,6 +22,9 @@
 # define WIDTH 800 //TODO нужно переделать Makefile, чтобы пересобирал без fclean
 # define HEIGHT 600
 
+# define TEX_WIDTH 64
+# define TEX_HEIGHT 64
+
 # define KEY_UP 126
 # define KEY_UP_W 13
 # define KEY_LEFT 123
