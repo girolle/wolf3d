@@ -30,3 +30,9 @@ void	error_map(void)
 	write(1, "error map\n", 10);
 	exit(1);
 }
+
+void	error(void)
+{
+	write(1, "error\n", 13);
+	exit(0);
+}

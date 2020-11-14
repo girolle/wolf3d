@@ -22,9 +22,6 @@
 # define WIDTH 800 //TODO нужно переделать Makefile, чтобы пересобирал без fclean
 # define HEIGHT 600
 
-# define TEX_WIDTH 64
-# define TEX_HEIGHT 64
-
 # define KEY_UP 126
 # define KEY_UP_W 13
 # define KEY_LEFT 123
@@ -114,12 +111,6 @@ typedef struct		s_env
 	int				**map;
 	int				map_width;
 	int				map_height;
-	unsigned int	color_1;
-	unsigned int	color_2;
-	unsigned int	color_3;
-	unsigned int	color_4;
-	unsigned int	color_sky;
-	unsigned int	color_ground;
 	t_ixy			text;
 }					t_env;
 
@@ -142,4 +133,5 @@ void				draw_player(t_env *e);
 void				draw_wall(int x, int start, int end, t_env *e);
 void				draw_sky(t_env *e);
 void				draw_floor(t_env *e, int end, int x);
+void				error(void);
 #endif

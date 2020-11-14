@@ -27,7 +27,6 @@ static void		ray_draw(t_env *e, int x)
 		end = e->height - 1;
 	draw_wall(x, start, end, e);
 	draw_floor(e, end, x);
-//	draw_line(e, x, start, end);
 }
 
 static void		ray_cal_dist(t_env *e)

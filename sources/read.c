@@ -60,11 +60,12 @@ int				open_file(t_env *e, char *f)
 	char	*line;
 	int		width_curr;
 
+
 	fd = open(f, O_DIRECTORY); //Зачем это?
 	if (fd >= 0)
 		return (0);
 	fd = open(f, O_RDONLY);
-	if (fd < 0)
+	if (fd < 0) // подумать
 		return (0);
 	read_pos(fd, e);
 	e->map_width = -1;

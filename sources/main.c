@@ -29,8 +29,6 @@ void	load_textures(t_env *e)
 	e->texture[3].data = mlx_get_data_addr(e->texture[3].image, &e->texture[3].bpp, &e->texture[0].sizeline, &e->texture[3].endian);
 	e->texture[4].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/purplestone.xpm", &h, &w);
 	e->texture[4].data = mlx_get_data_addr(e->texture[4].image, &e->texture[4].bpp, &e->texture[0].sizeline, &e->texture[4].endian);
-	e->texture[5].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/wood.xpm", &h, &w);
-	e->texture[5].data = mlx_get_data_addr(e->texture[5].image, &e->texture[5].bpp, &e->texture[5].sizeline, &e->texture[5].endian);
 }
 
 static void		read_option(t_env *e, int argc, char **argv)

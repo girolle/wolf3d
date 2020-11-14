@@ -37,26 +37,19 @@ static void		init_mlx(t_env *e)
 	e->mlx.img = mlx_new_image(e->mlx.mlx, WIDTH, HEIGHT);
 	e->mlx.pxl = mlx_get_data_addr(e->mlx.img, &(e->mlx.bpp), &(e->mlx.s_line),
 			&(e->mlx.ed));
-	e->mlx.last_frame = clock();
-	e->mlx.next_frame = 0;
+	//e->mlx.last_frame = clock(); // TODO что этооооо?????
+	//e->mlx.next_frame = 0;
 }
 
 t_env			*init_env(void)
 {
 	t_env	*e;
 
-	e = (t_env *)malloc(sizeof(t_env));
-	if (e == NULL)
+	if(!(e = (t_env *)malloc(sizeof(t_env))))
 		error_malloc();
 	e->width = WIDTH;
 	e->height = HEIGHT;
 	init_player(e);
 	init_mlx(e);
-	e->color_1 = 0xff9600;
-	e->color_2 = 0x73ff00;
-	e->color_3 = 0xff00fc;
-	e->color_4 = 0x46fffc;
-	e->color_sky = 0x00cdff;
-	e->color_ground = 0x2700ff;
 	return (e);
 }
