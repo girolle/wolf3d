@@ -94,9 +94,19 @@ typedef struct		s_mlx
 	clock_t			next_frame;
 }					t_mlx;
 
+typedef struct		s_texture
+{
+	void 			*image;
+	char 			*data;
+	int 			bpp;
+	int 			sizeline;
+	int 			endian;
+}					t_texture;
+
 typedef struct		s_env
 {
 	struct s_mlx	mlx;
+	t_texture		texture[9];
 	struct s_player	player;
 	struct s_ray	ray;
 	int				height;
