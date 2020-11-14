@@ -19,13 +19,10 @@ void		print_tulbar(t_env *e)
 
 	y = 0;
 	x = WIDTH - 200;
-	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 175, y += 20, 0xb8f581, "How to Use");
-	//mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 35, 0xEAEAEA, "Zoom: ^/-^");
-	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Move: W S  Keys");
-	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Rotate: <-/->");
-	//mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Reset: R Key");
-	//mlx_string_put(e->mlx.mlx, e->mlx.win, 70, y += 35, 0xb8f581, "Projections");
-	//mlx_string_put(e->mlx.mlx, e->mlx.win, 15, y += 35, 0xEAEAEA, "Change mode: M Key");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 20, 0xEAEAEA, "Move: arrows W S");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Rotate: arrows A D");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Speed: hold Shift");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Exit: esc");
 	y = 0;
 	while (y <= 150)
 	{
