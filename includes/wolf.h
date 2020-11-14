@@ -6,7 +6,7 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:04:03 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:04:06 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/14 19:03:15 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ typedef struct		s_env
 	unsigned int	color_4;
 	unsigned int	color_sky;
 	unsigned int	color_ground;
+	t_ixy			text;
 }					t_env;
 
 int					loop_hook(t_env *e);
@@ -138,4 +139,7 @@ void				error_arg(void);
 void				error_malloc(void);
 void				draw_map(t_env *e);
 void				draw_player(t_env *e);
+void				draw_wall(int x, int start, int end, t_env *e);
+void				draw_sky(t_env *e);
+void				draw_floor(t_env *e, int end, int x);
 #endif

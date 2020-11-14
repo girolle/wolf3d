@@ -6,7 +6,7 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:12:09 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:12:17 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/14 21:06:00 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ static void		ray_draw(t_env *e, int x)
 	end = height / 2 + e->height / 2;
 	if (end >= e->height)
 		end = e->height - 1;
-	draw_line(e, x, start, end);
+	draw_wall(x, start, end, e);
+	draw_floor(e, end, x);
+//	draw_line(e, x, start, end);
 }
 
 static void		ray_cal_dist(t_env *e)
@@ -103,6 +105,7 @@ void			raycasting(t_env *e)
 
 	x = -1;
 	e->ray.pos = e->player.pos;
+	draw_sky(e);
 	while (++x < e->width)
 	{
 		ray_init(e, x);

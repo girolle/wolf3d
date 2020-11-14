@@ -6,7 +6,7 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:09:54 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/09 21:20:27 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/14 20:40:36 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ int		loop_hook(t_env *e)
 		move_right(e);
 	if (e->player.move_left)
 		move_left(e);
-	printf("%f  %f  \n", e->player.dir.x, e->player.dir.y);
-	printf("%f  %f  \n", e->player.pos.x, e->player.pos.y);
+
 	raycasting(e);
 	mlx_put_image_to_window(e->mlx.mlx, e->mlx.win, e->mlx.img, 0, 0);
 	print_tulbar(e);

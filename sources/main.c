@@ -6,11 +6,32 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:10:51 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:10:59 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/14 22:50:24 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h" //TODO говорили, что так писать не очень клево, придираются
+
+void	load_textures(t_env *e)
+{
+	int	h;
+	int	w;
+
+	h = 64;
+	w = 64;
+	e->texture[0].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/stars.xpm", &h, &w);
+	e->texture[0].data = mlx_get_data_addr(e->texture[0].image, &e->texture[0].bpp, &e->texture[0].sizeline, &e->texture[0].endian);
+	e->texture[1].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/mossy.xpm", &h, &w);
+	e->texture[1].data = mlx_get_data_addr(e->texture[1].image, &e->texture[1].bpp, &e->texture[0].sizeline, &e->texture[1].endian);
+	e->texture[2].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/wood.xpm", &h, &w);
+	e->texture[2].data = mlx_get_data_addr(e->texture[2].image, &e->texture[2].bpp, &e->texture[0].sizeline, &e->texture[2].endian);
+	e->texture[3].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/redbrick.xpm", &h, &w);
+	e->texture[3].data = mlx_get_data_addr(e->texture[3].image, &e->texture[3].bpp, &e->texture[0].sizeline, &e->texture[3].endian);
+	e->texture[4].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/purplestone.xpm", &h, &w);
+	e->texture[4].data = mlx_get_data_addr(e->texture[4].image, &e->texture[4].bpp, &e->texture[0].sizeline, &e->texture[4].endian);
+	e->texture[5].image = mlx_xpm_file_to_image (e->mlx.mlx, "pics/wood.xpm", &h, &w);
+	e->texture[5].data = mlx_get_data_addr(e->texture[5].image, &e->texture[5].bpp, &e->texture[5].sizeline, &e->texture[5].endian);
+}
 
 static void		read_option(t_env *e, int argc, char **argv)
 {
@@ -25,6 +46,7 @@ int				main(int argc, char **argv)
 	t_env	*e;
 
 	e = init_env();
+	load_textures(e);
 	read_option(e, argc, argv);
 	e->mlx.win = mlx_new_window(e->mlx.mlx, WIDTH, HEIGHT,
 			"Wolf3d");
