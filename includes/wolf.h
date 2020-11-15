@@ -103,7 +103,7 @@ typedef struct		s_texture
 typedef struct		s_env
 {
 	struct s_mlx	mlx;
-	t_texture		texture[9];
+	t_texture		texture[5];
 	struct s_player	player;
 	struct s_ray	ray;
 	int				height;

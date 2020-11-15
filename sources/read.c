@@ -77,7 +77,8 @@ int				open_file(t_env *e, char *f)
 		if (e->map_width < 0)
 			e->map_width = ft_num_ammount(line);
 		width_curr = ft_num_ammount(line);
-		ft_strdel(&line);
+		//ft_strdel(&line);
+		free(line);
 		if (((e->map_width) != width_curr) || (!(width_curr > 0)))
 			error_map();
 	}
