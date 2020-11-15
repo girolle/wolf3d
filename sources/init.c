@@ -38,11 +38,11 @@ static void		init_mlx(t_env *e)
 			&(e->mlx.ed));
 }
 
-t_env			*init_env(void)
+t_env			*init_structure(void)
 {
 	t_env	*e;
 
-	if(!(e = (t_env *)malloc(sizeof(t_env))))
+	if (!(e = (t_env *)malloc(sizeof(t_env))))
 		error_malloc();
 	e->width = WIDTH;
 	e->height = HEIGHT;

@@ -12,17 +12,19 @@
 
 #include "../includes/wolf.h"
 
-void		print_tulbar(t_env *e)
+void	print_tulbar(t_env *e)
 {
 	int		y;
 	int		x;
 
 	y = 0;
 	x = WIDTH - 200;
-	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 20, 0xEAEAEA, "Move: arrows W S");
-	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Rotate: arrows A D");
-	//mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Speed: hold Shift");
-	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30, 0xEAEAEA, "Exit: esc");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 20,
+				0xEAEAEA, "Move: arrows W S");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30,
+				0xEAEAEA, "Rotate: arrows A D");
+	mlx_string_put(e->mlx.mlx, e->mlx.win, WIDTH - 190, y += 30,
+				0xEAEAEA, "Exit: esc");
 	y = 0;
 	while (y <= 150)
 	{
@@ -31,7 +33,7 @@ void		print_tulbar(t_env *e)
 		y++;
 		x++;
 	}
-	while(x <= WIDTH)
+	while (x <= WIDTH)
 	{
 		mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, 150, 0xEAEAEA);
 		x++;
@@ -40,10 +42,6 @@ void		print_tulbar(t_env *e)
 
 int		loop_hook(t_env *e)
 {
-//	e->mlx.last_frame = clock();
-//	if (e->mlx.next_frame > e->mlx.last_frame)
-//		return (0);
-//	e->mlx.next_frame = e->mlx.last_frame + (CLOCKS_PER_SEC / 100);
 	if (e->player.move_up)
 		move_up(e);
 	if (e->player.move_down)

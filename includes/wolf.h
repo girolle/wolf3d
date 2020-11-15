@@ -17,9 +17,8 @@
 # include <mlx.h>
 # include <math.h>
 # include <time.h>
-# include <stdio.h> //TODO удалить потом, сейчас нужен для проверки
 
-# define WIDTH 800 //TODO нужно переделать Makefile, чтобы пересобирал без fclean
+# define WIDTH 800
 # define HEIGHT 600
 
 # define KEY_UP 126
@@ -83,22 +82,18 @@ typedef struct		s_mlx
 	void			*img;
 	char			*pxl;
 	int				bpp;
-	int				s_line;
-	int				ed;
-	clock_t			last_frame;
-	clock_t			next_frame;
 }					t_mlx;
 
 typedef struct		s_texture
 {
-	void 			*image;
-	char 			*data;
-	int 			bpp;
-	int 			sizeline;
-	int 			endian;
+	void			*image;
+	char			*data;
+	int				bpp;
+	int				sizeline;
+	int				endian;
 }					t_texture;
 
-typedef struct		s_env
+typedef struct		s_wolf
 {
 	struct s_mlx	mlx;
 	t_texture		texture[5];
@@ -110,26 +105,27 @@ typedef struct		s_env
 	int				map_width;
 	int				map_height;
 	t_ixy			text;
-}					t_env;
+}					t_structure ;
 
-int					loop_hook(t_env *e);
-int					open_file(t_env *e, char *f);
-int					key_hook(int k, t_env *e);
+int					loop_hook(t_wolf *e);
+int					open_file(t_wolf *e, char *f);
+int					key_hook(int k, t_wolf *e);
 int					x_close(void *data);
-t_env				*init_env(void);
-void				draw_line(t_env *e, int x, int start, int end);
-void				raycasting(t_env *e);
-void				move_left(t_env *e);
-void				move_right(t_env *e);
-void				move_up(t_env *e);
-void				move_down(t_env *e);
+t_wolf				*init_structure(void);
+void				draw_line(t_wolf *e, int x, int start, int end);
+void				raycasting(t_wolf *e);
+void				move_left(t_wolf *e);
+void				move_right(t_wolf *e);
+void				move_up(t_wolf *e);
+void				move_down(t_wolf *e);
 void				error_map(void);
 void				error_arg(void);
 void				error_malloc(void);
-void				draw_map(t_env *e);
-void				draw_player(t_env *e);
-void				draw_wall(int x, int start, int end, t_env *e);
-void				draw_sky(t_env *e);
-void				draw_floor(t_env *e, int end, int x);
-void				error(void);
+void				draw_map(t_wolf *e);
+void				draw_player(t_wolf *e);
+void				draw_wall(int x, int start, int end, t_wolf *e);
+void				draw_sky(t_wolf *e);
+void				draw_floor(t_wolf *e, int end, int x);
+void				error_er(void);
+
 #endif

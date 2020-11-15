@@ -12,7 +12,7 @@
 
 #include "../includes/wolf.h"
 
-static void		read_pos(int fd, t_env *e)
+static void	read_pos(int fd, t_env *e)
 {
 	char	*line;
 	char	**line_split;
@@ -32,14 +32,19 @@ static void		read_pos(int fd, t_env *e)
 	free(line_split[0]);
 	free(line_split);
 	free(line);
+	e->map_width = -1;
+	e->map_height = 0;
 }
 
-static int		read_file(int fd, t_env *e)
+static int	read_file(char *f, t_env *e)
 {
 	char	*line;
 	int		**map;
 	int		i;
-	if  (!(map = (int **)malloc(sizeof(int **) * e->map_height)))
+	int		fd;
+
+	fd = open(f, O_RDONLY);
+	if (!(map = (int **)malloc(sizeof(int **) * e->map_height)))
 		error_malloc();
 	i = 0;
 	if (get_next_line(fd, &line) < 1)
@@ -57,22 +62,16 @@ static int		read_file(int fd, t_env *e)
 	return (1);
 }
 
-int				open_file(t_env *e, char *f)
+int			open_file(t_env *e, char *f)
 {
 	int		fd;
 	char	*line;
 	int		width_curr;
 
-
-	fd = open(f, O_DIRECTORY); //Зачем это?
-	if (fd >= 0)
-		return (0);
-	fd = open(f, O_RDONLY);
-	if (fd < 0) // подумать
-		return (0);
+	if ((fd = open(f, O_DIRECTORY)) >= 0 ||
+		(fd = open(f, O_RDONLY)) < 0)
+		error_er();
 	read_pos(fd, e);
-	e->map_width = -1;
-	e->map_height = 0;
 	while (get_next_line(fd, &line))
 	{
 		e->map_height++;
@@ -83,13 +82,10 @@ int				open_file(t_env *e, char *f)
 		if (((e->map_width) != width_curr) || (!(width_curr > 0)))
 			error_map();
 	}
-	free(line);
 	close(fd);
-		if (e->map_width < 0 || e->map_height < 0 || e->player.pos.x < 0 ||
-			e->player.pos.y < 0 || e->player.pos.x >= e->map_width ||
-			e->player.pos.y >= e->map_width)
-						error_map();
-
-	fd = open(f, O_RDONLY);
-	return (read_file(fd, e));
+	if (e->map_width < 0 || e->map_height < 0 || e->player.pos.x < 0 ||
+	e->player.pos.y < 0 || e->player.pos.x >= e->map_width ||
+	e->player.pos.y >= e->map_height)
+		error_map();
+	return (read_file(f, e));
 }

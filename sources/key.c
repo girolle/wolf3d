@@ -12,7 +12,6 @@
 
 #include "../includes/wolf.h"
 
-
 int		x_close(void *data)
 {
 	(void)data;

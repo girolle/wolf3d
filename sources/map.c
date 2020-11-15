@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/01 14:09:18 by rczarfun          #+#    #+#             */
+/*   Updated: 2020/11/01 14:09:26 by rczarfun         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/wolf.h"
 
-void 	draw_square(int x, int y, t_env *e, int color)
+void	draw_square(int x, int y, t_env *e, int color)
 {
 	int y1;
 	int x1;
@@ -11,8 +23,7 @@ void 	draw_square(int x, int y, t_env *e, int color)
 	{
 		while (x <= x1 + 5)
 		{
-			mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y,
-						  color);
+			mlx_pixel_put(e->mlx.mlx, e->mlx.win, x, y, color);
 			x++;
 		}
 		y++;
@@ -22,8 +33,8 @@ void 	draw_square(int x, int y, t_env *e, int color)
 
 void	draw_player(t_env *e)
 {
-	int 	x;
-	int		y;
+	int	x;
+	int	y;
 
 	x = (int)e->player.pos.x * 5 + 5;
 	y = (int)e->player.pos.y * 5 + 5;
@@ -41,7 +52,7 @@ void	draw_map(t_env *e)
 	y = 5;
 	i = 0;
 	j = 0;
-	while(i < e->map_height)
+	while (i < e->map_height)
 	{
 		while (j < e->map_width)
 		{

@@ -31,8 +31,8 @@ void	error_map(void)
 	exit(1);
 }
 
-void	error(void)
+void	error_er(void)
 {
-	write(1, "error\n", 13);
+	write(1, "error\n", 6);
 	exit(0);
 }
