@@ -39,7 +39,10 @@ static void	joinbuff(char **s, int ret, char *buff)
 
 	buff[ret] = '\0';
 	if (*s == NULL)
-		*s = ft_strdup(buff);
+	{
+		if(!(*s = ft_strdup(buff)))
+			exit(0);
+	}
 	else
 	{
 		tmp = ft_strjoin(*s, buff);
@@ -55,7 +58,7 @@ int			get_next_line(const int fd, char **line)
 	char		buff[BUFF_SIZE + 1];
 
 	if (fd < 0 || line == NULL)
-		return (-1);
+		exit(0);
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
 		joinbuff(&s[fd], ret, buff);
@@ -63,7 +66,7 @@ int			get_next_line(const int fd, char **line)
 			break ;
 	}
 	if (ret < 0)
-		return (-1);
+		exit(0);
 	else if (ret == 0 && s[fd] == NULL)
 		return (0);
 	else

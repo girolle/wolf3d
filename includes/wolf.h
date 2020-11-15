@@ -56,8 +56,6 @@ typedef struct		s_player
 	double			speed_turn;
 	double			speed_move;
 
-	int 			speed_plus;
-
 	char			move_left;
 	char			move_right;
 	char			move_up;

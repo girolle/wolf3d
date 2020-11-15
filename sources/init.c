@@ -22,7 +22,6 @@ static void		init_player(t_env *e)
 	e->player.plane.y = 0.66;
 	e->player.speed_turn = 0.05;
 	e->player.speed_move = 0.05;
-	e->player.speed_plus = 0;
 	e->player.move_up = 0;
 	e->player.move_down = 0;
 	e->player.move_right = 0;
@@ -37,8 +36,6 @@ static void		init_mlx(t_env *e)
 	e->mlx.img = mlx_new_image(e->mlx.mlx, WIDTH, HEIGHT);
 	e->mlx.pxl = mlx_get_data_addr(e->mlx.img, &(e->mlx.bpp), &(e->mlx.s_line),
 			&(e->mlx.ed));
-	//e->mlx.last_frame = clock(); // TODO что этооооо?????
-	//e->mlx.next_frame = 0;
 }
 
 t_env			*init_env(void)
