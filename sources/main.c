@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:10:51 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/14 22:50:24 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:20:11 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void			load_textures_sky(t_env *e)
+void			textures_sky(t_wolf *e)
 {
 	int	h1;
 	int	w1;
@@ -25,7 +25,7 @@ void			load_textures_sky(t_env *e)
 		&e->texture[0].bpp, &e->texture[0].sizeline, &e->texture[0].endian);
 }
 
-void			load_textures(t_env *e)
+void			textures(t_wolf *e)
 {
 	int	h;
 	int	w;
@@ -50,7 +50,7 @@ void			load_textures(t_env *e)
 		&e->texture[4].bpp, &e->texture[4].sizeline, &e->texture[4].endian);
 }
 
-static void		read_option(t_env *e, int argc, char **argv)
+static void		read_option(t_wolf *e, int argc, char **argv)
 {
 	if (argc != 2)
 		error_arg();
@@ -60,11 +60,11 @@ static void		read_option(t_env *e, int argc, char **argv)
 
 int				main(int argc, char **argv)
 {
-	t_env	*e;
+	t_wolf	*e;
 
-	e = init_env();
-	load_textures(e);
-	load_textures_sky(e);
+	e = init_wolf();
+	textures(e);
+	textures_sky(e);
 	read_option(e, argc, argv);
 	e->mlx.win = mlx_new_window(e->mlx.mlx, WIDTH, HEIGHT,
 			"Wolf3d");

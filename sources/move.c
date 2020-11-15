@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:11:25 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:11:32 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:12:19 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void	move_up(t_env *e)
+void	move_up(t_wolf *e)
 {
 	if (e->map[(int)(e->player.pos.x + e->player.dir.x * 10 *
 	e->player.speed_move)][(int)e->player.pos.y] == 0)
@@ -22,7 +22,7 @@ void	move_up(t_env *e)
 		e->player.pos.y += e->player.dir.y * e->player.speed_move;
 }
 
-void	move_down(t_env *e)
+void	move_down(t_wolf *e)
 {
 	if (e->map[(int)(e->player.pos.x - e->player.dir.x * 2 *
 	e->player.speed_move)][(int)e->player.pos.y] == 0)
@@ -32,7 +32,7 @@ void	move_down(t_env *e)
 		e->player.pos.y -= e->player.dir.y * e->player.speed_move;
 }
 
-void	move_right(t_env *e)
+void	move_right(t_wolf *e)
 {
 	t_dxy	old;
 
@@ -48,7 +48,7 @@ void	move_right(t_env *e)
 		cos(-e->player.speed_turn);
 }
 
-void	move_left(t_env *e)
+void	move_left(t_wolf *e)
 {
 	t_dxy	old;
 

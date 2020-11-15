@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:09:54 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/14 20:40:36 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:20:31 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void	print_tulbar(t_env *e)
+void	print_menu(t_wolf *e)
 {
 	int		y;
 	int		x;
@@ -40,7 +40,7 @@ void	print_tulbar(t_env *e)
 	}
 }
 
-int		loop_hook(t_env *e)
+int		loop_hook(t_wolf *e)
 {
 	if (e->player.move_up)
 		move_up(e);
@@ -52,7 +52,7 @@ int		loop_hook(t_env *e)
 		move_left(e);
 	raycasting(e);
 	mlx_put_image_to_window(e->mlx.mlx, e->mlx.win, e->mlx.img, 0, 0);
-	print_tulbar(e);
+	print_menu(e);
 	draw_map(e);
 	draw_player(e);
 	return (0);

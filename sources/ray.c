@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:12:09 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/14 21:06:00 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:12:19 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-static void		ray_draw(t_env *e, int x)
+static void		ray_draw(t_wolf *e, int x)
 {
 	int		height;
 	int		start;
@@ -29,7 +29,7 @@ static void		ray_draw(t_env *e, int x)
 	draw_floor(e, end, x);
 }
 
-static void		ray_cal_dist(t_env *e)
+static void		ray_cal_dist(t_wolf *e)
 {
 	while (e->ray.hit == 0)
 	{
@@ -58,7 +58,7 @@ static void		ray_cal_dist(t_env *e)
 	}
 }
 
-static void		ray_cal_step_side(t_env *e)
+static void		ray_cal_step_side(t_wolf *e)
 {
 	if (e->ray.dir.x < 0)
 	{
@@ -82,7 +82,7 @@ static void		ray_cal_step_side(t_env *e)
 	}
 }
 
-static void		ray_init(t_env *e, int x)
+static void		ray_init(t_wolf *e, int x)
 {
 	e->ray.map.x = (int)e->ray.pos.x;
 	e->ray.map.y = (int)e->ray.pos.y;
@@ -98,7 +98,7 @@ static void		ray_init(t_env *e, int x)
 	e->ray.hit_side = -1;
 }
 
-void			raycasting(t_env *e)
+void			raycasting(t_wolf *e)
 {
 	int		x;
 

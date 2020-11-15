@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:12:40 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/09 21:06:57 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:12:19 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-static void	read_pos(int fd, t_env *e)
+static void	read_pos(int fd, t_wolf *e)
 {
 	char	*line;
 	char	**line_split;
@@ -36,7 +36,7 @@ static void	read_pos(int fd, t_env *e)
 	e->map_height = 0;
 }
 
-static int	read_file(char *f, t_env *e)
+static int	read_file(char *f, t_wolf *e)
 {
 	char	*line;
 	int		**map;
@@ -62,7 +62,7 @@ static int	read_file(char *f, t_env *e)
 	return (1);
 }
 
-int			open_file(t_env *e, char *f)
+int			open_file(t_wolf *e, char *f)
 {
 	int		fd;
 	char	*line;

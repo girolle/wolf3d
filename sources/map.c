@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:09:18 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:09:26 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:12:19 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void	draw_square(int x, int y, t_env *e, int color)
+void	draw_square(int x, int y, t_wolf *e, int color)
 {
 	int y1;
 	int x1;
@@ -31,7 +31,7 @@ void	draw_square(int x, int y, t_env *e, int color)
 	}
 }
 
-void	draw_player(t_env *e)
+void	draw_player(t_wolf *e)
 {
 	int	x;
 	int	y;
@@ -41,7 +41,7 @@ void	draw_player(t_env *e)
 	draw_square(y, x, e, 0x00FF00);
 }
 
-void	draw_map(t_env *e)
+void	draw_map(t_wolf *e)
 {
 	int x;
 	int y;

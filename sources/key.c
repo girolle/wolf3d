@@ -6,7 +6,7 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:09:18 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:09:26 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:12:19 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		x_close(void *data)
 	exit(0);
 }
 
-void	key_move(int k, t_env *e)
+void	key_move(int k, t_wolf *e)
 {
 	if (k == KEY_UP || k == KEY_UP_W)
 		e->player.move_up = !e->player.move_up;
@@ -35,7 +35,7 @@ void	key_move(int k, t_env *e)
 	}
 }
 
-int		key_hook(int k, t_env *e)
+int		key_hook(int k, t_wolf *e)
 {
 	key_move(k, e);
 	return (0);

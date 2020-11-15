@@ -6,13 +6,13 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:08:35 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/01 14:08:42 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:16:06 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-static void		init_player(t_env *e)
+static void		init_player(t_wolf *e)
 {
 	e->player.pos.x = 0;
 	e->player.pos.y = 0;
@@ -28,21 +28,21 @@ static void		init_player(t_env *e)
 	e->player.move_left = 0;
 }
 
-static void		init_mlx(t_env *e)
+static void		init_mlx(t_wolf *e)
 {
 	e->mlx.mlx = mlx_init();
 	e->mlx.bpp = 0;
-	e->mlx.s_line = 0;
+	e->mlx.sizeline = 0;
 	e->mlx.img = mlx_new_image(e->mlx.mlx, WIDTH, HEIGHT);
-	e->mlx.pxl = mlx_get_data_addr(e->mlx.img, &(e->mlx.bpp), &(e->mlx.s_line),
-			&(e->mlx.ed));
+	e->mlx.pxl = mlx_get_data_addr(e->mlx.img, &(e->mlx.bpp), &(e->mlx.sizeline),
+			&(e->mlx.endian));
 }
 
-t_env			*init_structure(void)
+t_wolf			*init_wolf(void)
 {
-	t_env	*e;
+	t_wolf	*e;
 
-	if (!(e = (t_env *)malloc(sizeof(t_env))))
+	if (!(e = (t_wolf *)malloc(sizeof(t_wolf))))
 		error_malloc();
 	e->width = WIDTH;
 	e->height = HEIGHT;

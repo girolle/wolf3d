@@ -6,7 +6,7 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:07:16 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/14 23:11:14 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:12:19 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	put_pxl_to_img(t_wolf *e, int x, int y, int lineheight)
 	}
 }
 
-void	draw_wall(int x, int start, int end, t_env *e)
+void	draw_wall(int x, int start, int end, t_wolf *e)
 {
 	double	wall;
 	int		lineheight;
@@ -65,7 +65,7 @@ void	draw_wall(int x, int start, int end, t_env *e)
 	}
 }
 
-void	draw_sky(t_env *e)
+void	draw_sky(t_wolf *e)
 {
 	e->text.x = 0;
 	while (e->text.x < WIDTH)
@@ -84,7 +84,7 @@ void	draw_sky(t_env *e)
 	}
 }
 
-void	draw_floor(t_env *e, int end, int x)
+void	draw_floor(t_wolf *e, int end, int x)
 {
 	int color;
 	int y;

@@ -6,7 +6,7 @@
 /*   By: rczarfun <rczarfun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 14:04:03 by rczarfun          #+#    #+#             */
-/*   Updated: 2020/11/14 19:03:15 by rczarfun         ###   ########.fr       */
+/*   Updated: 2020/11/15 18:22:09 by rczarfun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef struct		s_mlx
 	void			*img;
 	char			*pxl;
 	int				bpp;
+	int				sizeline;
+	int				endian;
 }					t_mlx;
 
 typedef struct		s_texture
@@ -105,13 +107,13 @@ typedef struct		s_wolf
 	int				map_width;
 	int				map_height;
 	t_ixy			text;
-}					t_structure ;
+}					t_wolf;
 
 int					loop_hook(t_wolf *e);
 int					open_file(t_wolf *e, char *f);
 int					key_hook(int k, t_wolf *e);
 int					x_close(void *data);
-t_wolf				*init_structure(void);
+t_wolf				*init_wolf(void);
 void				draw_line(t_wolf *e, int x, int start, int end);
 void				raycasting(t_wolf *e);
 void				move_left(t_wolf *e);
